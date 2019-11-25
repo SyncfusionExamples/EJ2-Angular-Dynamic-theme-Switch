@@ -3,11 +3,11 @@ import { Popup } from '@syncfusion/ej2-popups';
 import { data } from './datasource';
 import { select, selectAll, Ajax, isVisible, classList, closest } from '@syncfusion/ej2-base';
 import { DropDownList, DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-let themes: string[] = ['material', 'fabric', 'bootstrap', 'high contrast'];
+let themes: string[] = ['material', 'fabric', 'bootstrap'];
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
@@ -18,9 +18,7 @@ export class AppComponent implements OnInit {
   public data1: Object[] = [
     { Id: 'material', Theme: 'material' },
     { Id: 'fabric', Theme: 'fabric' },
-    { Id: 'bootstrap', Theme: 'bootstrap' },
-    { Id: 'high contrast', Theme: 'high contrast' },
-    { Id: 'material-dark', Theme: 'material-dark'}
+    { Id: 'bootstrap', Theme: 'bootstrap' }
 
   ];
   public fields: Object = { text: 'Theme', value: 'Id' };
@@ -65,10 +63,12 @@ export class AppComponent implements OnInit {
 
   public onChange(e: any): void {
     if (e && e.value) {
+      debugger
       let ajax: Ajax = new Ajax('assets/styles/' + e.value + '.css', 'GET', true);
       ajax.send().then((result: any) => {
-        let style: HTMLCollectionOf<HTMLStyleElement> = document.getElementsByTagName('style') as HTMLCollectionOf<HTMLStyleElement>;
-        style[0].innerHTML = `/*${e.value}*/` + result;
+        let styleTag = document.getElementById('theme');
+        // styleTag.innerHTML = '';
+        styleTag.innerHTML=`/*${e.value}*/` + result;
       });
     }
   }
