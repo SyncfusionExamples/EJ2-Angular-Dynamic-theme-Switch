@@ -33,7 +33,6 @@ Add the below code in `app.component.html` file.
 
 The `onChange` function in the dropdownlist component gets triggered, whenever the theme is changed.
 
-
 ## Add Style Tag 
 
 ```typescript
@@ -85,7 +84,7 @@ Whenever the `onChange` function is triggered, the respective CSS file of the se
 
 Use the following command to run the application in browser.
 
-```typescript
+```
 npm start
 
 ```
