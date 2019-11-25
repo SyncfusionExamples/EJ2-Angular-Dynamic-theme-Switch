@@ -86,7 +86,6 @@ Use the following command to run the application in browser.
 
 ```
 npm start
-
 ```
 
 ## Further help
