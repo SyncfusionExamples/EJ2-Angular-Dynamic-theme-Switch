@@ -63,7 +63,6 @@ export class AppComponent implements OnInit {
 
   public onChange(e: any): void {
     if (e && e.value) {
-      debugger
       let ajax: Ajax = new Ajax('assets/styles/' + e.value + '.css', 'GET', true);
       ajax.send().then((result: any) => {
         let styleTag = document.getElementById('theme');
